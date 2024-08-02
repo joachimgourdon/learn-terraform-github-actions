@@ -39,6 +39,10 @@ resource "aws_instance" "web" {
               echo "Hello, Everyone!" > index.html
               nohup busybox httpd -f -p 8080 &
               EOF
+
+  tags = {
+    "version" = "0.1.0"
+  }
 }
 
 resource "aws_security_group" "web-sg" {
